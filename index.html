@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nidhi Ravi - Portfolio</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Outfit:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div
+      class="floating-blob blob-blue"
+      style="top: -80px; left: -120px; width: 320px; height: 320px"
+    ></div>
+    <div
+      class="floating-blob blob-peach"
+      style="top: 60vh; right: -100px; width: 220px; height: 220px"
+    ></div>
+
+    <header>
+      <nav>
+        <div class="logo">Nidhi Ravi</div>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#courses">Courses</a></li>
+          <li><a href="#education">Education</a></li>
+          <li><a href="#about">About Me</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="scroll-container">
+      <!-- Home Section -->
+      <section id="home" class="section">
+        <div class="home-container">
+          <div class="home-text">
+            <h1>Hi I am Nidhi Ravi</h1>
+            <p>
+              I love building intuitive, responsive web applications and
+              exploring the power of machine learning to solve real-world
+              problems. With a keen eye for detail and a drive for innovation,
+              I'm constantly learning and pushing boundaries at the intersection
+              of development and data.
+            </p>
+            <div class="home-buttons">
+             <a href="docs/Nidhi_Ravi_Resume.pdf" class="btn primary" id="resume-btn" download>Resume</a>
+             <a href="https://github.com/nidhiravi" class="btn secondary" id="github-btn" target="_blank">Github</a>
+            </div>
+          </div>
+          <div class="home-photo">
+            <img
+              src="images/test.jpeg"
+              alt="Nidhi Ravi"
+              onerror="this.src='https://via.placeholder.com/350x350/3A86FF/FFFFFF?text=Nidhi+Ravi'"
+            />
+          </div>
+        </div>
+      </section>
+
+      <!-- Projects Section -->
+      <section id="projects" class="section">
+        <h1>Featured Projects</h1>
+        <div class="projects-grid">
+          <div class="project-card">
+            <h2>Portfolio Website</h2>
+            <p>
+              A personal portfolio website to showcase my work, skills, and
+              contact information. Fully responsive and built with modern web
+              technologies.
+            </p>
+            <div class="project-tech">HTML, CSS, JavaScript</div>
+            <a href="#" class="btn project-github">Github</a>
+          </div>
+          <div class="project-card">
+            <h2>Machine Learning Classifier</h2>
+            <p>
+              A web app that predicts outcomes using machine learning models.
+              Includes data visualization and interactive features.
+            </p>
+            <div class="project-tech">
+              Python, scikit-learn, Flask, JavaScript
+            </div>
+            <a href="#" class="btn project-github">Github</a>
+          </div>
+          <div class="project-card">
+            <h2>Task Manager App</h2>
+            <p>
+              A productivity tool to manage daily tasks, set reminders, and
+              track progress. Features a clean UI and persistent storage.
+            </p>
+            <div class="project-tech">React, Node.js, MongoDB</div>
+            <a href="#" class="btn project-github">Github</a>
+          </div>
+          <div class="project-card">
+  <h2>Stock Portfolio Management System</h2>
+  <p>
+    A Spring Boot application for managing stock portfolios with secure user authentication, portfolio management, transaction processing, and performance analysis. 
+  </p>
+  <div class="project-tech">
+    Java 21, Spring Boot, Spring Security, Spring Data JPA, Thymeleaf, Bootstrap 5, MySQL, Maven
+  </div>
+  <a href="#" class="btn project-github">Github</a>
+</div>
+<div class="project-card">
+  <h2>Skill Exchange Platform</h2>
+  <p>
+    A web application to manage skills and projects, allowing users to track progress, assign skills, and update project statuses with a secure and responsive interface.
+  </p>
+  <div class="project-tech">
+    JavaScript, React, Python, Flask, SQL, Axios, CSS
+  </div>
+  <a href="#" class="btn project-github">Github</a>
+</div>
+
+
+        </div>
+      </section>
+
+      <!-- Skills Section -->
+      <section id="skills" class="section">
+        <h1>Skills</h1>
+        <div class="skills-grid">
+          <div class="skill-card">
+            <h2>Programming Languages & Frameworks</h2>
+            <ul>
+              <li>Python</li>
+              <li>HTML, CSS, JavaScript (React)</li>
+              <li>C</li>
+              <li>MATLAB</li>
+              <li>Java</li>
+              <li>Node.js</li>
+            </ul>
+          </div>
+          <div class="skill-card">
+            <h2>Data Structures & Algorithms</h2>
+            <ul>
+              <li>Proficient in Data Structures and Algorithms</li>
+            </ul>
+          </div>
+          <div class="skill-card">
+            <h2>Database Management</h2>
+            <ul>
+              <li>PostgreSQL</li>
+              <li>MySQL</li>
+              <li>MongoDB</li>
+            </ul>
+          </div>
+          <div class="skill-card">
+            <h2>Operating Systems & Scripting</h2>
+            <ul>
+              <li>Linux (Shell Programming)</li>
+            </ul>
+          </div>
+          <div class="skill-card">
+            <h2>Developer Tools</h2>
+            <ul>
+              <li>Jupyter Notebook</li>
+              <li>GitHub</li>
+              <li>Microsoft Office (Advanced Excel, Word)</li>
+            </ul>
+          </div>
+          <div class="skill-card">
+            <h2>Other Strengths</h2>
+            <ul>
+              <li>Strong problem-solving and analytical skills</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Courses Section -->
+      <section id="courses" class="section">
+        <h1>Courses and Certifications</h1>
+        <div class="carousel-3d-container">
+          <div class="carousel-3d">
+            <div class="carousel-3d-card">
+              <img
+                class="carousel-logo-img"
+                src="images/google-cloud.png"
+                alt="Google Cloud Logo"
+              />
+              <div class="carousel-title">
+                Getting Started with Flutter Development (Google Cloud)
+              </div>
+            </div>
+            <div class="carousel-3d-card">
+              <img
+                class="carousel-logo-img"
+                src="images/ibm.png"
+                alt="IBM Logo"
+              />
+              <div class="carousel-title">
+                Getting Started with Front-End and Web Development (IBM)
+              </div>
+            </div>
+            <div class="carousel-3d-card">
+              <img
+                class="carousel-logo-img"
+                src="images/learnquest.png"
+                alt="LearnQuest Logo"
+              />
+              <div class="carousel-title">
+                Introduction to Java (LearnQuest)
+              </div>
+            </div>
+            <div class="carousel-3d-card">
+              <img
+                class="carousel-logo-img"
+                src="images/ibm.png"
+                alt="IBM Logo"
+              />
+              <div class="carousel-title">
+                Supervised Machine Learning: Regression (IBM)
+              </div>
+            </div>
+            <div class="carousel-3d-card">
+              <img
+                class="carousel-logo-img"
+                src="images/ibm.png"
+                alt="IBM Logo"
+              />
+              <div class="carousel-title">
+                Supervised Machine Learning: Classification (IBM)
+              </div>
+            </div>
+            <div class="carousel-3d-card">
+              <img
+                class="carousel-logo-img"
+                src="images/ibm.png"
+                alt="IBM Logo"
+              />
+              <div class="carousel-title">
+                Exploratory Data Analysis for Machine Learning (IBM)
+              </div>
+            </div>
+            <div class="carousel-3d-card">
+              <img
+                class="carousel-logo-img"
+                src="images/meta.png"
+                alt="Meta Logo"
+              />
+              <div class="carousel-title">
+                Introduction to Android Mobile App Development (Meta)
+              </div>
+            </div>
+            <div class="carousel-3d-card">
+              <img
+                class="carousel-logo-img"
+                src="images/udemy.png"
+                alt="Udemy Logo"
+              />
+              <div class="carousel-title">
+                100 Days of Code: The Complete Python Pro Bootcamp (Udemy)
+              </div>
+            </div>
+          </div>
+          <div class="carousel-dots"></div>
+        </div>
+      </section>
+
+      <!-- Education Section -->
+      <section id="education" class="section">
+        <h1>Education</h1>
+        <div class="education-timeline">
+          <div class="edu-card highlight">
+            <div class="edu-header">
+              <div class="edu-dot"></div>
+              <div>
+                <h2>People Education Society (PES) University</h2>
+                <span class="edu-location">Bengaluru, India</span>
+              </div>
+            </div>
+            <div class="edu-details">
+              <span class="edu-duration">July 2022 - Present</span>
+              <div class="edu-degree">
+                Bachelors of Science, Computer Science and Engineering (Junior)
+              </div>
+              <ul class="edu-achievements">
+                <li>Won 2 university-level hackathons</li>
+              </ul>
+            </div>
+          </div>
+          <div class="edu-card">
+            <div class="edu-header">
+              <div class="edu-dot"></div>
+              <div>
+                <h2>Sri Chaitanya College</h2>
+                <span class="edu-location">Bengaluru, India</span>
+              </div>
+            </div>
+            <div class="edu-details">
+              <span class="edu-duration">June 2020 - May 2022</span>
+              <div class="edu-degree">Maths, Physics, Chemistry</div>
+              <ul class="edu-achievements">
+                <li>Percentage: 95.67%</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- About Section -->
+      <section id="about" class="section">
+        <h1>About Me</h1>
+        <div class="about-section">
+          <p>
+            Hello! I'm Nidhi Ravi, a passionate developer who loves building
+            intuitive, responsive web applications and exploring the power of
+            machine learning to solve real-world problems. I thrive on
+            creativity, innovation, and continuous learning.
+          </p>
+          <p>
+            At PES University, I've had the opportunity to immerse myself in
+            Computer Science and Engineering. My university journey has been
+            filled with exciting projects, hackathons (including winning two
+            university-level hackathons!), and a vibrant community that
+            constantly inspires me to push boundaries.
+          </p>
+          <p>
+            Beyond coding, I enjoy reading, painting, and exploring new music
+            genres. I love collaborating with others, sharing ideas, and finding
+            inspiration in everyday experiences.
+          </p>
+        </div>
+        <h2>Contact Me</h2>
+        <div class="contact-details">
+          <div class="contact-item">
+            <span class="contact-icon">📍</span> Bengaluru, India
+          </div>
+          <div class="contact-item">
+            <span class="contact-icon">✉️</span> nidhiravi3021@gmail.com
+          </div>
+          <div class="contact-item">
+            <span class="contact-icon">📞</span> (+91) 6362397511
+          </div>
+          <div class="contact-item">
+  <span class="contact-icon">
+    <img src="images/linkedin.png" alt="LinkedIn" style="width:20px; height:20px; vertical-align:middle;">
+  </span>
+  <a href="https://www.linkedin.com/in/nidhiravi/" target="_blank">
+    LinkedIn Profile
+  </a>
+        </div>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
