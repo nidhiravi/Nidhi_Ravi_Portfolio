@@ -243,6 +243,23 @@ nav {
   border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
+nav .logo a {
+  font-family: "Outfit", sans-serif;
+  font-size: 2.2rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #3a86ff, #ff6b6b);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-decoration: none;
+  text-shadow: 0 2px 4px rgba(58, 134, 255, 0.1);
+  transition: transform 0.3s ease;
+}
+
+nav .logo a:hover {
+  transform: scale(1.05);
+}
+
 /* Active Navigation Link */
 nav ul li a.active {
   background: #3a86ff;
@@ -594,94 +611,141 @@ h2 {
 }
 
 /* Carousel 3D robust styles */
+/* Fixed Carousel Positioning - No Overflow */
 .carousel-3d-container {
+  position: relative;
+  perspective: 1000px;
   width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin: 3rem 0 0 0;
-  perspective: 1200px;
-  min-height: 340px;
+  max-width: 100%;
+  height: 400px;
+  margin: 2rem auto;
+  overflow: hidden;
 }
+
 .carousel-3d {
   position: relative;
-  width: 420px;
-  height: 260px;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
 .carousel-3d-card {
   position: absolute;
-  top: 0;
-  left: 50%;
-  width: 260px;
-  height: 180px;
+  width: 280px;
+  height: 320px;
+  padding: 2rem;
   background: #ffffff;
   border: 4px solid #3a86ff;
-  border-radius: 18px;
-  box-shadow: 0 8px 32px rgba(58, 134, 255, 0.13),
-    0 2px 8px rgba(255, 190, 163, 0.1);
-  transform: translateX(-50%) scale(0.7);
-  opacity: 0.5;
-  z-index: 1;
-  transition: transform 0.7s cubic-bezier(0.4, 2, 0.3, 1), opacity 0.7s,
-    z-index 0.7s;
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(58, 134, 255, 0.15);
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-end;
-  padding: 2rem 1.2rem 1.2rem 1.2rem;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  text-align: center;
+  backdrop-filter: blur(10px);
+  overflow: hidden;
 }
+
+.carousel-3d-card:hover {
+  transform: scale(1.05) translateY(-10px);
+  box-shadow: 0 20px 40px rgba(58, 134, 255, 0.25);
+  border-color: #ff6b6b;
+}
+
+.carousel-logo-img {
+  width: 70px;
+  height: 70px;
+  object-fit: contain;
+  margin-bottom: 1.5rem;
+  border-radius: 12px;
+  padding: 8px;
+  background: rgba(58, 134, 255, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.carousel-3d-card:hover .carousel-logo-img {
+  transform: scale(1.1);
+}
+
+.carousel-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #333;
+  line-height: 1.4;
+  font-family: "Inter", sans-serif;
+}
+
+/* Carousel Positions - Centered and No Overflow */
 .carousel-3d-card.active {
-  transform: translateX(-50%) scale(1.08) translateZ(60px);
-  opacity: 1;
+  transform: translateX(0) scale(1);
   z-index: 5;
+  opacity: 1;
+  border-color: #3a86ff;
   background: #ffffff;
   color: #222;
-  box-shadow: 0 12px 36px rgba(58, 134, 255, 0.18),
-    0 2px 8px rgba(255, 190, 163, 0.13);
-  border: 4px solid #3a86ff;
 }
-.carousel-3d-card.left {
-  transform: translateX(-140%) scale(0.85) rotateY(18deg) translateZ(-30px);
-  opacity: 0.8;
-  z-index: 3;
+
+.carousel-3d-card.active .carousel-title {
+  color: #222;
 }
+
 .carousel-3d-card.right {
-  transform: translateX(40%) scale(0.85) rotateY(-18deg) translateZ(-30px);
-  opacity: 0.8;
+  transform: translateX(300px) scale(0.85) rotateY(-20deg);
   z-index: 3;
+  opacity: 0.8;
 }
-.carousel-3d-card.back-left {
-  transform: translateX(-220%) scale(0.7) rotateY(30deg) translateZ(-80px);
-  opacity: 0.4;
-  z-index: 2;
+
+.carousel-3d-card.left {
+  transform: translateX(-300px) scale(0.85) rotateY(20deg);
+  z-index: 3;
+  opacity: 0.8;
 }
+
 .carousel-3d-card.back-right {
-  transform: translateX(120%) scale(0.7) rotateY(-30deg) translateZ(-80px);
-  opacity: 0.4;
+  transform: translateX(450px) scale(0.7) rotateY(-35deg);
   z-index: 2;
+  opacity: 0.5;
 }
+
+.carousel-3d-card.back-left {
+  transform: translateX(-450px) scale(0.7) rotateY(35deg);
+  z-index: 2;
+  opacity: 0.5;
+}
+
+/* Enhanced Dots */
 .carousel-dots {
   display: flex;
   justify-content: center;
-  align-items: center;
-  margin-top: 1.5rem;
-  gap: 0.7rem;
+  margin-top: 2rem;
+  gap: 12px;
 }
+
 .carousel-dot {
-  width: 13px;
-  height: 13px;
+  width: 14px;
+  height: 14px;
   border-radius: 50%;
-  background: #f1f3f8;
-  border: 2.5px solid #3a86ff;
-  transition: background 0.3s, border 0.3s;
+  background: #e0e0e0;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
 }
+
+.carousel-dot:hover {
+  background: #3a86ff;
+  transform: scale(1.2);
+}
+
 .carousel-dot.active {
   background: #3a86ff;
-  border: 2.5px solid #ffbea3;
+  border-color: #ffbea3;
+  transform: scale(1.3);
+  box-shadow: 0 0 10px rgba(58, 134, 255, 0.5);
 }
 
 /* Animated blobs */
@@ -852,4 +916,209 @@ main {
   height: auto;
   margin: 0 auto 1rem;
   display: block;
+}
+
+/* Responsive Design for Sections */
+@media (max-width: 1200px) {
+  .carousel-3d-card.right {
+    transform: translateX(250px) scale(0.8) rotateY(-15deg);
+  }
+
+  .carousel-3d-card.left {
+    transform: translateX(-250px) scale(0.8) rotateY(15deg);
+  }
+
+  .carousel-3d-card.back-right {
+    transform: translateX(380px) scale(0.65) rotateY(-30deg);
+  }
+
+  .carousel-3d-card.back-left {
+    transform: translateX(-380px) scale(0.65) rotateY(30deg);
+  }
+}
+
+@media (max-width: 900px) {
+  .carousel-3d-container {
+    height: 350px;
+  }
+
+  .carousel-3d-card {
+    width: 240px;
+    height: 280px;
+    padding: 1.5rem;
+  }
+
+  .carousel-3d-card.right {
+    transform: translateX(200px) scale(0.75) rotateY(-10deg);
+  }
+
+  .carousel-3d-card.left {
+    transform: translateX(-200px) scale(0.75) rotateY(10deg);
+  }
+
+  .carousel-3d-card.back-right {
+    transform: translateX(300px) scale(0.6) rotateY(-25deg);
+  }
+
+  .carousel-3d-card.back-left {
+    transform: translateX(-300px) scale(0.6) rotateY(25deg);
+  }
+}
+
+@media (max-width: 768px) {
+  .carousel-3d-container {
+    height: 300px;
+  }
+
+  .carousel-3d-card {
+    width: 200px;
+    height: 240px;
+    padding: 1rem;
+  }
+
+  .carousel-3d-card.right {
+    transform: translateX(150px) scale(0.7) rotateY(-5deg);
+  }
+
+  .carousel-3d-card.left {
+    transform: translateX(-150px) scale(0.7) rotateY(5deg);
+  }
+
+  .carousel-3d-card.back-right {
+    transform: translateX(220px) scale(0.55) rotateY(-20deg);
+  }
+
+  .carousel-3d-card.back-left {
+    transform: translateX(-220px) scale(0.55) rotateY(20deg);
+  }
+
+  .carousel-title {
+    font-size: 0.9rem;
+  }
+
+  .carousel-logo-img {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 1rem;
+  }
+
+  nav {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+    margin: 0.5rem auto;
+  }
+
+  nav ul {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .section {
+    padding: 1rem;
+    min-height: 100vh;
+  }
+
+  #home .home-container {
+    flex-direction: column;
+    text-align: center;
+    gap: 2.5rem;
+  }
+
+  #home .home-text {
+    max-width: 100%;
+  }
+
+  #home h1 {
+    font-size: 2.5rem;
+  }
+
+  #home p {
+    font-size: 1.1rem;
+  }
+
+  #home .home-photo {
+    order: -1;
+    margin-bottom: 1rem;
+  }
+
+  #home .home-photo img {
+    width: 280px;
+    height: 280px;
+  }
+
+  .home-buttons {
+    justify-content: center;
+  }
+
+  .contact-details {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .carousel-3d-container {
+    height: 250px;
+  }
+
+  .carousel-3d-card {
+    width: 180px;
+    height: 200px;
+    padding: 0.8rem;
+  }
+
+  .carousel-3d-card.right {
+    transform: translateX(120px) scale(0.65) rotateY(-3deg);
+  }
+
+  .carousel-3d-card.left {
+    transform: translateX(-120px) scale(0.65) rotateY(3deg);
+  }
+
+  .carousel-3d-card.back-right {
+    transform: translateX(180px) scale(0.5) rotateY(-15deg);
+  }
+
+  .carousel-3d-card.back-left {
+    transform: translateX(-180px) scale(0.5) rotateY(15deg);
+  }
+
+  .carousel-title {
+    font-size: 0.8rem;
+  }
+
+  .carousel-logo-img {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 0.8rem;
+  }
+
+  #home {
+    padding: 0 1rem;
+  }
+
+  #home h1 {
+    font-size: 2.2rem;
+  }
+
+  #home p {
+    font-size: 1rem;
+  }
+
+  #home .home-photo img {
+    width: 250px;
+    height: 250px;
+  }
+
+  .projects-grid,
+  .skills-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .project-card,
+  .skill-card,
+  .edu-card {
+    padding: 1.5rem;
+  }
 }

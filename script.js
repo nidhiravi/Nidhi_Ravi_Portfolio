@@ -1,6 +1,6 @@
 // Single Page Scroll Website with Smooth Scrolling
 document.addEventListener("DOMContentLoaded", function () {
-  // Smooth scrolling for navigation links
+  // Smooth scrolling for navigation links and logo
   const navLinks = document.querySelectorAll('nav a[href^="#"]');
 
   navLinks.forEach((link) => {
@@ -88,7 +88,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function startCarousel() {
-      interval = setInterval(next, 2500);
+      interval = setInterval(next, 3000);
     }
 
     function stopCarousel() {
@@ -100,8 +100,39 @@ document.addEventListener("DOMContentLoaded", function () {
       startCarousel();
     }
 
+    // Pause carousel on hover for better UX
     carousel3d.addEventListener("mouseenter", stopCarousel);
     carousel3d.addEventListener("mouseleave", startCarousel);
+
+    // Touch events for mobile
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    carousel3d.addEventListener("touchstart", function (e) {
+      touchStartX = e.changedTouches[0].screenX;
+    });
+
+    carousel3d.addEventListener("touchend", function (e) {
+      touchEndX = e.changedTouches[0].screenX;
+      handleSwipe();
+    });
+
+    function handleSwipe() {
+      const swipeThreshold = 50;
+      const diff = touchStartX - touchEndX;
+
+      if (Math.abs(diff) > swipeThreshold) {
+        if (diff > 0) {
+          // Swipe left - next
+          current = (current + 1) % cards.length;
+        } else {
+          // Swipe right - previous
+          current = (current - 1 + cards.length) % cards.length;
+        }
+        updateClasses();
+        resetInterval();
+      }
+    }
 
     updateClasses();
     startCarousel();
@@ -121,4 +152,16 @@ document.addEventListener("DOMContentLoaded", function () {
       sections[currentSection - 1].scrollIntoView({ behavior: "smooth" });
     }
   });
+
+  // Smooth scroll to top when logo is clicked
+  const logoLink = document.querySelector(".logo a");
+  if (logoLink) {
+    logoLink.addEventListener("click", function (e) {
+      e.preventDefault();
+      document.querySelector("#home").scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    });
+  }
 });
