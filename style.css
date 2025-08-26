@@ -1,5 +1,7 @@
 html {
   scroll-behavior: smooth;
+  height: 100%;
+  overflow-x: hidden;
 }
 
 body {
@@ -9,6 +11,39 @@ body {
   color: #222;
   overflow-x: hidden;
   scroll-behavior: smooth;
+  height: 100%;
+  position: relative;
+}
+
+/* Mobile-specific body fixes */
+@media (max-width: 768px) {
+  html,
+  body {
+    height: 100%;
+    overflow-x: hidden;
+    position: relative;
+  }
+
+  body {
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Ensure proper scrolling on mobile */
+  .scroll-container {
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: auto; /* Disable smooth scroll on mobile for better performance */
+  }
+
+  /* Better touch targets for mobile */
+  .btn {
+    min-height: 44px;
+    padding: 12px 20px;
+  }
+
+  /* Ensure navigation doesn't block content */
+  .section:first-child {
+    margin-top: 0;
+  }
 }
 
 /* Scroll Container */
@@ -17,6 +52,7 @@ body {
   overflow-y: scroll;
   height: 100vh;
   scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch; /* Better scrolling on iOS */
 }
 
 /* Section Styling */
@@ -31,6 +67,31 @@ body {
   position: relative;
   width: 100%;
   box-sizing: border-box;
+}
+
+/* Mobile-specific fixes for scrolling */
+@media (max-width: 768px) {
+  .scroll-container {
+    scroll-snap-type: y proximity; /* Less strict snapping on mobile */
+    height: 100vh;
+    height: 100dvh; /* Dynamic viewport height for mobile */
+  }
+
+  .section {
+    min-height: 100vh;
+    min-height: 100dvh; /* Dynamic viewport height for mobile */
+    padding: 1rem;
+    justify-content: flex-start;
+    padding-top: 6rem; /* Account for fixed navigation */
+  }
+
+  #home {
+    padding-top: 8rem; /* Extra padding for home section */
+  }
+
+  #about {
+    padding-bottom: 4rem; /* Extra padding for last section */
+  }
 }
 
 /* Home Section */
@@ -196,6 +257,258 @@ body {
   );
 }
 
+/* Experience Section */
+#experience {
+  background: linear-gradient(
+    135deg,
+    rgba(58, 134, 255, 0.05) 0%,
+    rgba(255, 255, 255, 0.9) 100%
+  );
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+#experience > h1 {
+  text-align: center;
+  margin-bottom: 3rem;
+  font-size: 2.5rem;
+  color: #3a86ff;
+  font-family: "Outfit", sans-serif;
+  font-weight: 700;
+}
+
+.experience-section {
+  margin-bottom: 3rem;
+  width: 100%;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.experience-category {
+  font-size: 1.8rem;
+  color: #3a86ff;
+  margin-bottom: 2rem;
+  text-align: center;
+  font-family: "Outfit", sans-serif;
+  font-weight: 600;
+  position: relative;
+}
+
+.experience-category::after {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, #3a86ff, #ff6b6b);
+  border-radius: 2px;
+}
+
+.experience-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.exp-card {
+  background: linear-gradient(120deg, #f1f3f8 80%, #ffffff 100%);
+  border-radius: 18px;
+  box-shadow: 0 4px 16px rgba(58, 134, 255, 0.08);
+  padding: 2rem;
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
+  transition: all 0.3s ease;
+  border-left: 6px solid #3a86ff;
+}
+
+.exp-card.work-exp {
+  border-left-color: #3a86ff;
+}
+
+.exp-card.co-curricular {
+  border-left-color: #ff6b6b;
+}
+
+.exp-card:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 8px 32px rgba(58, 134, 255, 0.18);
+  border-left-width: 8px;
+}
+
+.exp-card.work-exp:hover {
+  border-left-color: #2563eb;
+}
+
+.exp-card.co-curricular:hover {
+  border-left-color: #dc2626;
+}
+
+.exp-logo {
+  flex-shrink: 0;
+  width: 60px;
+  height: 60px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #f1f3f8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #3a86ff;
+}
+
+.exp-card.co-curricular .exp-logo {
+  border-color: #ff6b6b;
+}
+
+.exp-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.exp-content {
+  flex: 1;
+}
+
+.exp-header h3 {
+  font-size: 1.4rem;
+  color: #3a86ff;
+  margin: 0 0 0.5rem 0;
+  font-family: "Outfit", sans-serif;
+  font-weight: 600;
+}
+
+.exp-company {
+  font-size: 1.1rem;
+  color: #ff6b6b;
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+}
+
+.exp-location {
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 0.3rem;
+}
+
+.exp-duration {
+  font-size: 0.95rem;
+  color: #3a86ff;
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+.exp-details ul {
+  margin: 0;
+  padding-left: 1.2rem;
+  color: #333;
+  line-height: 1.6;
+}
+
+.exp-details li {
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+}
+
+/* Responsive Design for Experience Section */
+@media (max-width: 768px) {
+  .exp-card {
+    flex-direction: column;
+    text-align: center;
+    padding: 1.5rem;
+  }
+
+  .exp-logo {
+    align-self: center;
+    margin-bottom: 1rem;
+  }
+
+  .exp-header h3 {
+    font-size: 1.2rem;
+  }
+
+  .exp-company {
+    font-size: 1rem;
+  }
+
+  .exp-details ul {
+    text-align: left;
+  }
+}
+
+@media (max-width: 480px) {
+  .exp-card {
+    padding: 1.2rem;
+  }
+
+  .exp-logo {
+    width: 50px;
+    height: 50px;
+  }
+
+  .exp-header h3 {
+    font-size: 1.1rem;
+  }
+
+  .exp-details li {
+    font-size: 0.95rem;
+  }
+}
+
+/* Additional responsive improvements for experience section */
+@media (max-width: 1024px) {
+  .experience-section {
+    max-width: 900px;
+  }
+
+  .exp-card {
+    padding: 1.8rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .experience-section {
+    max-width: 100%;
+    padding: 0 0.5rem;
+  }
+
+  .exp-card {
+    padding: 1.5rem;
+    gap: 1rem;
+  }
+
+  .exp-logo {
+    width: 50px;
+    height: 50px;
+  }
+
+  .exp-header h3 {
+    font-size: 1.1rem;
+  }
+
+  .exp-company {
+    font-size: 0.95rem;
+  }
+
+  .exp-location {
+    font-size: 0.9rem;
+  }
+
+  .exp-duration {
+    font-size: 0.9rem;
+  }
+
+  .exp-details li {
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+}
+
 /* Courses Section */
 #courses {
   background: linear-gradient(
@@ -312,6 +625,8 @@ nav ul li a.active {
   .section {
     padding: 1rem;
     min-height: 100vh;
+    min-height: 100dvh;
+    padding-top: 6rem;
   }
 
   #home .home-container {
@@ -329,11 +644,43 @@ nav ul li a.active {
     gap: 1rem;
     padding: 1rem;
     margin: 0.5rem auto;
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    width: 90%;
   }
 
   nav ul {
     flex-wrap: wrap;
     justify-content: center;
+    gap: 0.5rem;
+  }
+
+  nav ul li {
+    margin-left: 0;
+  }
+
+  nav ul li a {
+    font-size: 0.9rem;
+    padding: 4px 8px;
+  }
+
+  /* Ensure content is fully visible on mobile */
+  .projects-grid,
+  .skills-grid,
+  .experience-timeline,
+  .education-timeline,
+  .carousel-3d-container {
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  /* Better spacing for mobile */
+  .section > h1 {
+    margin-bottom: 2rem;
+    margin-top: 1rem;
   }
 }
 
@@ -434,6 +781,18 @@ main {
   border-radius: 18px;
   box-shadow: 0 2px 8px rgba(58, 134, 255, 0.04);
   margin-bottom: 2.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* Mobile-specific main fixes */
+@media (max-width: 768px) {
+  main {
+    width: 95%;
+    margin: 0 auto;
+    padding: 1rem 0;
+    margin-bottom: 1rem;
+  }
 }
 
 h1,
